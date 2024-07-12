@@ -40,17 +40,26 @@ import { CommonModule } from '@angular/common';
 
 export class LoginComponent {
   value=' ';
-  // protected readonly value = signal('');
- 
-  // protected onInput(event: Event) {
-  //   this.value.set((event.target as HTMLInputElement).value);
-
-  // }
+  
   usernameFC=new FormControl('',[Validators.required]);
+
+  workouttimer=new FormControl('',[Validators.required]);
   workouts = new FormControl<string[]>([], { validators: Validators.required, nonNullable: true });
   workoutList: string[] = ['Cycling', 'Jogging', 'Swimming', 'Yoga', 'Other'];
 
   get selectedWorkouts(): string {
     return this.workouts.value.join(', ');
+  }
+
+  minutesFC = new FormControl('', [
+    Validators.required,
+    Validators.min(1),  
+    Validators.max(100)
+  ]);
+  clearAll(){
+    this.usernameFC.setValue('');
+    this.workouts.setValue([]);
+    this.minutesFC.setValue('');
+    
   }
 }
