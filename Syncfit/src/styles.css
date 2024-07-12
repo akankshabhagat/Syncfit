@@ -4,4 +4,14 @@
 @tailwind utilities;
 
 html, body { height: 100%; }
+
+div.container{
+    margin:0px 40px;
+}
+
+.fill-remaining-space{
+    flex: 1 1 auto;
+}
+
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
