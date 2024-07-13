@@ -3,11 +3,18 @@ import {
   FormControl,
   FormGroupDirective,
   NgForm,
+  FormGroup,
   Validators,
   FormsModule,
   ReactiveFormsModule,
+  FormBuilder,
+  
   
 } from '@angular/forms';
+import {AfterViewInit,  ViewChild} from '@angular/core';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import {MatSort, MatSortModule} from '@angular/material/sort';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {ChangeDetectionStrategy, signal} from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
@@ -17,7 +24,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { CommonModule } from '@angular/common';
-
+import { WorkoutDataComponent } from '../workdata/workout-data.component';
 
 @Component({
   selector: 'login',
@@ -30,7 +37,11 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     MatSelectModule,
     MatCheckboxModule
-    ,MatIconModule
+    ,MatIconModule,
+    MatTableModule,
+     MatSortModule, 
+     MatPaginatorModule,
+
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
@@ -39,27 +50,33 @@ import { CommonModule } from '@angular/common';
 })
 
 export class LoginComponent {
-  value=' ';
-  
-  usernameFC=new FormControl('',[Validators.required]);
 
-  workouttimer=new FormControl('',[Validators.required]);
-  workouts = new FormControl<string[]>([], { validators: Validators.required, nonNullable: true });
-  workoutList: string[] = ['Cycling', 'Jogging', 'Swimming', 'Yoga', 'Other'];
-
-  get selectedWorkouts(): string {
-    return this.workouts.value.join(', ');
+  workoutForm: FormGroup;
+  workoutList: string[] = ['Running', 'Cycling', 'Swimming', 'Yoga'];
+  constructor(private fb: FormBuilder) {
+    this.workoutForm = this.fb.group({
+      Username: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+      chosenworkouts: [[], Validators.required],
+      workoutminutes: ['', [Validators.required, Validators.min(1), Validators.max(100)]],
+      // Add other form controls here as needed
+    });
+  }
+  clearAll() {
+    this.workoutForm.get('username')?.setValue('');
+    this.workoutForm.get('workoutminutes')?.setValue('');
+    this.workoutForm.get('chosenworkouts')?.setValue([]);
   }
 
-  minutesFC = new FormControl('', [
-    Validators.required,
-    Validators.min(1),  
-    Validators.max(100)
-  ]);
-  clearAll(){
-    this.usernameFC.setValue('');
-    this.workouts.setValue([]);
-    this.minutesFC.setValue('');
-    
-  }
+  // Method to handle form submission
+  onSubmit() {
+    if (this.workoutForm.valid) {
+      console.log(this.workoutForm.value);
+    }
+
+  // get selectedWorkouts(): string {
+  //   return this.workouts.value.join(', ');
+  // }
+
 }
+}
+

@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatSlideToggleModule} from
 '@angular/material/slide-toggle';
 import { LoginComponent } from "./Components/login/login.component";
-import { WorkoutDataComponent } from "./Components/workout-data/workout-data.component";
+import { WorkoutDataComponent } from "./Components/workdata/workout-data.component";
 
 @Component({
   selector: 'app-root',

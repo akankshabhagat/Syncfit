@@ -1,38 +1,40 @@
 <div class="container mx-auto max-w-3xl">
+  <form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
   <div class="border-emerald-200 border-2 border-dashed flex flex-col md:flex-row gap-4 p-4">
 
     <mat-form-field hintLabel="length 5-10 characters" class="flex-grow mx-auto md:w-64">
       <mat-label class="text-lg">Username</mat-label>
-      <input matInput [formControl]="usernameFC" type="text" class="w-full">
-      <ng-container *ngIf="usernameFC.value && usernameFC.value.length > 0">
+      <input matInput formControlName="Username" type="text" class="w-full">
+      <ng-container *ngIf="workoutForm.get('Username')?.value && workoutForm.get('Username')?.value.length > 0">
         <!-- <button matSuffix mat-icon-button aria-label="Clear" (click)="usernameFC.setValue('')">
           <mat-icon>close</mat-icon>
         </button> -->
       </ng-container>
 
-      <mat-error *ngIf="usernameFC.hasError('required')">Username is required</mat-error>
-      <mat-error *ngIf="usernameFC.hasError('minlength')">Minimum 5 characters required</mat-error>
-      <mat-error *ngIf="usernameFC.hasError('maxlength')">Maximum 10 characters allowed</mat-error>
+      <mat-error *ngIf="workoutForm.get('Username')?.hasError('required')">Username is required</mat-error>
+      <mat-error *ngIf="workoutForm.get('Username')?.hasError('minlength')">Minimum 5 characters required</mat-error>
+      <mat-error *ngIf="workoutForm.get('Username')?.hasError('maxlength')">Maximum 10 characters allowed</mat-error>
     </mat-form-field>
     
     <mat-form-field class="flex-grow min-w-[200px] mx-auto md:max-w-[500px]">
       <mat-label class="text-lg">Workout type</mat-label>
-      <mat-select [formControl]="workouts" multiple class="w-full">
+      <mat-select formControlName="chosenworkouts" multiple class="w-full">
         <mat-option *ngFor="let workout of workoutList" [value]="workout">{{ workout }}</mat-option>
       </mat-select>
+      <mat-error *ngIf="workoutForm.get('chosenworkouts')?.hasError('required')">Workout type is required</mat-error>
     </mat-form-field>
 
     <mat-form-field class="flex-grow min-w-[200px] mx-auto md:max-w-[500px]">
       <mat-label class="text-lg">Workout Minutes</mat-label>
-      <input matInput [formControl]="minutesFC" type="number" required>
-      <ng-container *ngIf="minutesFC.value">
+      <input matInput formControlName="workoutminutes" type="number" required>
+      <ng-container *ngIf="workoutForm.get('workoutminutes')?.value">
         <!-- <button matSuffix mat-icon-button aria-label="Clear" (click)="minutesFC.setValue('')">
           <mat-icon>close</mat-icon>
         </button> -->
       </ng-container>
-      <mat-error *ngIf="minutesFC.hasError('required')">Minutes are required</mat-error>
-      <mat-error *ngIf="minutesFC.hasError('min')">Value must be at least 1</mat-error>
-      <mat-error *ngIf="minutesFC.hasError('max')">Value must be at most 100</mat-error>
+      <mat-error *ngIf="workoutForm.get('workoutminutes')?.hasError('required')">Minutes are required</mat-error>
+    <mat-error *ngIf="workoutForm.get('workoutminutes')?.hasError('min')">Value must be at least 1</mat-error>
+    <mat-error *ngIf="workoutForm.get('workoutminutes')?.hasError('max')">Value must be at most 100</mat-error>
     </mat-form-field>
     
     
@@ -40,13 +42,15 @@
   </div>
 
   <div class="border-emerald-200 border-2 border-dashed flex items-center justify-center gap-4 p-4">
-    <button type="button" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-md px-4 py-2 w-36 truncate">
+    <button type="submit"  [disabled]="!workoutForm.valid" class="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-md px-4 py-2 w-36 truncate">
       Add Workout
     </button>
-    <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-4 py-2 w-24 truncate" (click)="clearAll()">
+    <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-4 py-2 w-24 truncate" >
       Clear
     </button>
-    <p class="text-lg">You selected: {{ selectedWorkouts }}</p>
+
+    <!-- <p class="text-lg">You selected: {{ selectedWorkouts }}</p> -->
   </div>
-  
+
+ </form>
 </div>

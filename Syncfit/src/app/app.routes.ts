@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
-import { WorkoutDataComponent } from './Components/workout-data/workout-data.component';
+import { WorkoutDataComponent } from './Components/workdata/workout-data.component';
 
 export const routes: Routes = [
 
@@ -16,7 +16,7 @@ component:LoginComponent,
 
     },
     {
-        path:'',
+        path:'workdata',
         component:WorkoutDataComponent
     }
 
