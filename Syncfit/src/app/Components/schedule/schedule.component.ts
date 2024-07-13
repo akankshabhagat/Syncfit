@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ImportsModule } from '../../imports';
+import { Table } from 'primeng/table';
 @Component({
   selector: 'schedule',
   standalone: true,
-  imports: [],
+  imports: [ImportsModule],
   templateUrl: './schedule.component.html',
   styleUrl: './schedule.component.css'
 })
-export class ScheduleComponent {
+export class ScheduleComponent{
 
+  clear(table: Table) {
+    table.clear();
+    
+}
+searchValue=""
+
+  
 }

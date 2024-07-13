@@ -1,16 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-table {
-    width: 100%;
-  }
+
   
-  .mat-mdc-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
+
   
-  td, th {
-    width: 25%;
+ 
+  .leafcon{
+    border-radius:  90px 0 90px 0;
   }
-  

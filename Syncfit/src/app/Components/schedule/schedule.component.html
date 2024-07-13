@@ -1,1 +1,80 @@
-<p>schedule works!</p>
+<div class="container mx-auto max-w-8xl border-2 border-emerald-200 mt-8 ">
+    <div class="container mx-auto max-w-6xl border-2 border-emerald-200 mt-8 ">
+        <p-table
+            #dt1
+            dataKey="id"
+            [rows]="5"
+            [rowsPerPageOptions]="[5, 10, 15]"
+            [paginator]="true"
+            [globalFilterFields]="['Username', 'chosenworkouts', 'workoutminutes']"
+            [loading]=""
+        >
+            <ng-template pTemplate="caption">
+                <div class="flex">
+                    <p-button label="Clear" [outlined]="true" icon="pi pi-filter-slash" (onClick)="clear(dt1)" />
+                    <span class="p-input-icon-left ml-auto">
+                        <i class="pi pi-search"></i>
+                        <!-- <input pInputText type="text" [(ngModel)]="searchValue" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+                    </span>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="min-width:5rem">
+                        <div class="flex align-items-center">
+                            Name
+                            <p-columnFilter type="text" field="Username" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="min-width:5rem">
+                        <div class="flex align-items-center">
+                            Workout Type
+                            <p-columnFilter type="text" field="chosenworkouts" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th style="min-width:5rem">
+                        <div class="flex align-items-center">
+                            Workout Minutes
+                            <p-columnFilter type="text" field="workoutminutes" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+    
+                    <th style="min-width:5rem">
+                        <div class="flex align-items-center">
+                            Activity
+                            <p-columnFilter field="activity" matchMode="between" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                                <ng-template pTemplate="filter" let-filter="filterCallback">
+                                     <p-slider  [range]="true" (onSlideEnd)="filter($event.values)" styleClass="m-3" /> 
+                                    <div class="flex align-items-center px-2">
+                                        <span>heyactivity1</span>
+                                        <span>heyactivity2</span>
+                                    </div> 
+                                </ng-template>
+                            </p-columnFilter>
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-workout>
+                <tr>
+                    <td>name</td>
+                    <td>workouttype</td>
+                    <td>workoutminutes<td>
+                   
+                </tr>
+                <td>
+                    <!-- <p-progressBar [value]="customer.activity" [showValue]="false" />  -->
+                     activityprogressbar
+                </td>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="3">No workouts found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+    
+    
+
+</div>
