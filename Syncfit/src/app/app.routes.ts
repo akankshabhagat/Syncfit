@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './Components/login/login.component';
-import { WorkoutDataComponent } from './Components/workdata/workout-data.component';
+import { DialogContentExampleComponent } from './Components/dialog-content-example/dialog-content-example.component';
+import { ScheduleComponent } from './Components/schedule/schedule.component';
 
 export const routes: Routes = [
 
@@ -12,12 +13,16 @@ export const routes: Routes = [
     },
     {
 path:'login',
-component:LoginComponent,
+component:LoginComponent
 
     },
     {
-        path:'workdata',
-        component:WorkoutDataComponent
+        path:'login',
+        component:DialogContentExampleComponent
+    },
+    {
+path:'login',
+component:ScheduleComponent
     }
 
 

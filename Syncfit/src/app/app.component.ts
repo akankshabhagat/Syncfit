@@ -3,12 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import {MatSlideToggleModule} from
 '@angular/material/slide-toggle';
 import { LoginComponent } from "./Components/login/login.component";
-import { WorkoutDataComponent } from "./Components/workdata/workout-data.component";
 
+import { ScheduleComponent } from './Components/schedule/schedule.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatSlideToggleModule, LoginComponent, WorkoutDataComponent],
+  imports: [RouterOutlet, MatSlideToggleModule, LoginComponent,ScheduleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
