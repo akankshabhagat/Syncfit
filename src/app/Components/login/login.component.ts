@@ -54,7 +54,6 @@ import { DatatableService } from '../datatable.service';
    
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginComponent {
