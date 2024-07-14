@@ -110,6 +110,18 @@
         "Yoga"
       ],
       "workoutminutes": 40
+    },
+    {
+      "id": "519a",
+      "Username": "akansha",
+      "chosenworkouts": [
+        "Running",
+        "Cycling",
+        "Swimming",
+        "Yoga",
+        "Other"
+      ],
+      "workoutminutes": 66
     }
   ]
 }

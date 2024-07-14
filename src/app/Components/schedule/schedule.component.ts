@@ -30,7 +30,7 @@ export class ScheduleComponent implements OnInit {
         this.loading = false;
       },
       error: (err) => {
-        console.log(err);
+        // console.log(err);
         this.loading = false;
       }
     });
