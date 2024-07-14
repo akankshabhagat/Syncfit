@@ -2,6 +2,7 @@
 
 ![alt text](image.png)
 
+![Syncfitfull](https://github.com/user-attachments/assets/64342ea5-e532-4075-b172-cd8663d94f34)
 
 #plan  
 The initial plan was to make a fitness personal webapp that can track my fitness which works as follows 
@@ -10,7 +11,8 @@ UI->FIGMA
 FRONTEND->Angular
 Style->Tailwind CSS
 BACKEND->Express
-DATABASE->Mongo DB
+DATABASE->Mongo DB![Screenshot 2024-07-14 175252](https://github.com/user-attachments/assets/061ef396-2214-4776-aa0c-1d6a181dd101)
+
 
 but eventually  did not end up following it as the Api for mongodb and others will be exposed it on github.
 
