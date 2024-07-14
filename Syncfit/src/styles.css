@@ -12,6 +12,18 @@ html, body { height: 100%; }
 .fill-remaining-space{
     flex: 1 1 auto;
 } */
+.leafcon{
+    border-radius: 0 90px 0 90px ;
+  }
 
-
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+  .leafcon1{
+    border-radius: 90px 0 90px 0 ;
+  }
+  
+  .bgimage{
+    background-image: url('../src/app/Components/assets/yoga.jpg');
+  }
+  .pgstyle{
+    margin: 10px;
+    padding: 2px;
+  }
