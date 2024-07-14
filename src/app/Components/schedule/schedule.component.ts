@@ -10,7 +10,7 @@ import { DatatableService } from '../datatable.service';
   standalone: true,
   imports: [ImportsModule],
   templateUrl: './schedule.component.html',
-  styleUrls: ['./schedule.component.css']
+
 })
 export class ScheduleComponent implements OnInit {
   users: any[] = []; // Array to hold the user data

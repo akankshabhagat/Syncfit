@@ -10,7 +10,7 @@ import { ScheduleComponent } from './Components/schedule/schedule.component';
   standalone: true,
   imports: [RouterOutlet, MatSlideToggleModule, LoginComponent,ScheduleComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+
 })
 export class AppComponent {
   title = 'Syncfit';

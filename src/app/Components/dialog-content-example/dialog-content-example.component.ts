@@ -9,7 +9,7 @@ import {
   selector: 'dialogbox',
   standalone:true,
   templateUrl: './dialog-content-example.component.html',
-  styleUrl: './dialog-content-example.component.css',
+
   imports:[
     MatDialogModule,
   ],
